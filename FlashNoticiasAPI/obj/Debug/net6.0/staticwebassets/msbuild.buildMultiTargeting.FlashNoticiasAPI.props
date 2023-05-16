@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FlashNoticiasAPI.props" />
+</Project>

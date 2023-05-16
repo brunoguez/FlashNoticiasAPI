@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kQaMs9xppjfb+DfILfovlc0pgc7yWF9aG0srwx7TiRA=",
+  "Source": "FlashNoticiasAPI",
+  "BasePath": "_content/FlashNoticiasAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
