@@ -1,4 +1,5 @@
 using Microsoft.Data.Sqlite;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,8 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-string connectionString = "Data Source=C:\\Users\\Bruno\\Documents\\GitHub\\FlashNoticiasAPI\\FlashNoticiasAPI\\DataBase\\FlashNoticias.db";
-builder.Services.AddSingleton(new SqliteConnection(connectionString));
+string connectionString = "Data Source=FlashNoticias.db";
+builder.Services.AddSingleton<IDbConnection>((sp) =>
+{
+    return new SqliteConnection(connectionString);
+});
+
+SQLitePCL.Batteries.Init();
+SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_e_sqlite3());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

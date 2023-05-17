@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
+using System.Data.SqlClient;
 
 namespace FlashNoticiasAPI.Controllers
 {
@@ -21,6 +23,9 @@ namespace FlashNoticiasAPI.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            SqliteConnection conn = new("Data Source=FlashNoticias.db");
+            conn.Open();
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
